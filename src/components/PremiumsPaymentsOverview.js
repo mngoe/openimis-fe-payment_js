@@ -198,7 +198,7 @@ class PremiumsPaymentsOverview extends PagedDataHandler {
             rights,
             fetchingPremiumsPayments,
         } = this.props;
-        if (!family.uuid) return null;
+        if (!family.uuid ||(!!family.familyType && family.familyType.code == 'P')) return null;
         const canAdd = rights.includes(RIGHT_PAYMENT_ADD);
         let actions = [
             {
