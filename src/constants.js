@@ -30,3 +30,4 @@ export const MODULE_NAME = "payment";
 
 export const PAYMENT_STATUS = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5];
 export const PAYMENTS_TAB_VALUE = "paymentsTab";
+export const FAMILY_TYPE_POLYGAMY_CODE = "P";
