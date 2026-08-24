@@ -44,6 +44,7 @@ class PremiumsPaymentsOverview extends PagedDataHandler {
         super(props);
         this.rowsPerPageOptions = props.modulesManager.getConf("fe-insuree", "premiumsPaymentsOverview.rowsPerPageOptions", [5, 10, 20]);
         this.defaultPageSize = props.modulesManager.getConf("fe-insuree", "premiumsPaymentsOverview.defaultPageSize", 5);
+        this.manualContributionDisabled = props.modulesManager.getConf("fe-contribution", "familyPremiumsOverview.manualContributionDisabled", true);
     }
 
     componentDidMount() {
@@ -208,7 +209,7 @@ class PremiumsPaymentsOverview extends PagedDataHandler {
                 tooltip: formatMessage(intl, "contribution", "reload.tooltip")
             }
         ];
-        if (!!!readOnly && canAdd) {
+        if (!readOnly && canAdd && !this.manualContributionDisabled) {
             actions.push(
                 {
                     button: <IconButton className={!premium ? classes.disabled : ""} onClick={this.addNewPayment}><AddIcon /></IconButton>,
