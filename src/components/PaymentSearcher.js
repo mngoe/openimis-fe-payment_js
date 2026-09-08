@@ -131,8 +131,8 @@ class PaymentSearcher extends Component {
         const formatters = [
             p => formatDateFromISO(modulesManager, intl, p.receivedDate),
             p => formatDateFromISO(modulesManager, intl, p.requestDate),
-            p => formatAmount(intl, p.expectedAmount),
-            p => formatAmount(intl, p.receivedAmount),
+            p => formatAmount(modulesManager, intl, p.expectedAmount),
+            p => formatAmount(modulesManager, intl, p.receivedAmount),
             p => <PublishedComponent
                 readOnly={true}
                 pubRef="contribution.PremiumPaymentTypePicker" withLabel={false} value={p.typeOfPayment}
