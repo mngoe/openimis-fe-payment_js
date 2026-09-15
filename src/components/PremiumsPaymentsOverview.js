@@ -149,9 +149,9 @@ class PremiumsPaymentsOverview extends PagedDataHandler {
         const formatters = [
             p => p.typeOfPayment,
             p => formatDateFromISO(this.props.modulesManager, this.props.intl, p.requestDate),
-            p => formatAmount(this.props.intl, p.expectedAmount),
+            p => formatAmount(this.props.modulesManager, this.props.intl, p.expectedAmount),
             p => formatDateFromISO(this.props.modulesManager, this.props.intl, p.receivedDate),
-            p => formatAmount(this.props.intl, p.receivedAmount),
+            p => formatAmount(this.props.modulesManager, this.props.intl, p.receivedAmount),
             p => p.receiptNo,
             p => <PublishedComponent
                 readOnly={true}

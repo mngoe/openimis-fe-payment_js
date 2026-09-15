@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { injectIntl } from "react-intl";
 import {
   formatMessageWithValues,
+  formatAmount,
   Searcher,
   formatDateFromISO,
   withModulesManager,
@@ -90,8 +91,8 @@ const PaymentInvoiceSearcher = ({
       (paymentInvoice) => paymentInvoice.label,
       (paymentInvoice) => paymentInvoice.codeTp,
       (paymentInvoice) => paymentInvoice.codeReceipt,
-      (paymentInvoice) => paymentInvoice.fees,
-      (paymentInvoice) => paymentInvoice.amountReceived,
+      (paymentInvoice) => formatAmount(modulesManager, intl, paymentInvoice.fees),
+      (paymentInvoice) => formatAmount(modulesManager, intl, paymentInvoice.amountReceived),
       (paymentInvoice) =>
         !!paymentInvoice.datePayment
           ? formatDateFromISO(modulesManager, intl, paymentInvoice.datePayment)
