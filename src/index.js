@@ -52,7 +52,14 @@ const DEFAULT_CONFIG = {
       text: <FormattedMessage module="payment" id="menu.payments" />,
       icon: <PaymentIcon />,
       route: "/" + ROUTE_PAYMENTS_INVOICE,
-      filter: rights => rights.includes(RIGHT_BILL_PAYMENT_SEARCH)
+      filter: (rights, modulesManager) => {
+        const paymentsMenuEnabled = modulesManager.getConf(
+          "fe-payment",
+          "payment.paymentsMenuEnabled",
+          false,
+        );
+        return paymentsMenuEnabled && rights.includes(RIGHT_BILL_PAYMENT_SEARCH);
+      }
     }
   ]
 }
