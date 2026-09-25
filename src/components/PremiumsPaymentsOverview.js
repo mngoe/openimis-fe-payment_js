@@ -220,7 +220,7 @@ class PremiumsPaymentsOverview extends PagedDataHandler {
             )
         }
 
-        return (
+        return !this.manualContributionDisabled ? (
             <>
                 <DeletePaymentDialog
                         payment={this.state.deletePayment}
@@ -267,7 +267,7 @@ class PremiumsPaymentsOverview extends PagedDataHandler {
                     />
                 </Paper>
             </>
-        )
+        ) : <></>
     }
 }
 
